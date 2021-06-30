@@ -1,0 +1,19 @@
+.headerBlock {
+  background-color: #474d59;
+  color: #fffffd;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+  padding: 5px;
+}
+
+.logoName {
+  font-size: 2em;
+}
+
+.accountMenu {
+  border: 1px solid #fffffd;
+  border-radius: 5%;
+  padding: 5px;
+}
