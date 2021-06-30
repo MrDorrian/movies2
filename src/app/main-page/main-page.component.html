@@ -1,4 +1,8 @@
-<div class="main-page">
-  <img src="{{src}}" alt="{{original_title}}">
-  <p>{{original_title}}</p>
+<div class="movieBlock">
+  <div *ngFor="let movie of moviesDB">
+    <img src="{{imgSrc+movie.poster_path}}" alt="{{movie.title}}">
+    <!--  <p>{{movie.title}}</p>-->
+  </div>
 </div>
+
+

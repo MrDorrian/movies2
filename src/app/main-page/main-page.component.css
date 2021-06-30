@@ -1,0 +1,6 @@
+.movieBlock {
+  display: flex;
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
