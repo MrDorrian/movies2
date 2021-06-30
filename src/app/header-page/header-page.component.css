@@ -8,6 +8,11 @@
   padding: 5px;
 }
 
+.logoImg {
+  width: 50px;
+  height: 20px;
+}
+
 .logoName {
   font-size: 2em;
 }
