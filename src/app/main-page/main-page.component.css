@@ -1,6 +1,58 @@
-.movieBlock {
+.newBlock {
+  padding: 20px 0px 10px 20px;
+  color: #b1b7b9;
+}
+
+.movieContainer {
   display: flex;
   flex: 1 0 auto;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.movieBlock {
+  position: relative;
+}
+
+.movieTitle {
+  display: none;
+}
+
+.movieBlock:hover > .movieTitle {
+  position: absolute;
+  z-index: 1;
+  text-shadow: black 0 2px 2px;
+  top: 150px;
+  left: 40px;
+  color: #21a7eb;
+  font-size: 3em;
+  font-weight: bold;
+  display: block;
+}
+
+.movieBlock:hover > .movieImg {
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+}
+
+.movieImg {
+  border-radius: 2%;
+  margin-bottom: 10px;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.buttonPag {
+  border: 1px solid black;
+  border-radius: 5%;
+  padding: 10px 20px;
+  margin-left: 5px;
+}
+
+.buttonPag:hover {
+  box-shadow: 0 1px 5px grey
 }

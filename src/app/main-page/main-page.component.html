@@ -1,8 +1,17 @@
-<div class="movieBlock">
-  <div *ngFor="let movie of moviesDB">
-    <img src="{{imgSrc+movie.poster_path}}" alt="{{movie.title}}">
-    <!--  <p>{{movie.title}}</p>-->
+<div class="newBlock">
+  <h2> Latest Releases</h2>
+</div>
+<div class="movieContainer">
+  <div class="movieBlock" *ngFor="let movie of moviesDB">
+    <img class="movieImg" src="{{imgSrc+movie.poster_path}}" alt="{{movie.title}}" id="{{movie.id}}">
+    <p class="movieTitle">{{movie.title}}</p>
   </div>
+</div>
+<div class="paginationContainer">
+  <button class="firstBtn buttonPag">First</button>
+  <button class="prevBtn buttonPag">Prev</button>
+  <button class="nextBtn buttonPag">Next</button>
+  <button class="lastBtn buttonPag">Last</button>
 </div>
 
 
