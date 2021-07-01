@@ -1,0 +1,19 @@
+<div class="detailMovieBackImg">
+  <img class="detailMovieContainerImg" src="{{imgSrc+detailMovie.poster_path}}" alt="{{detailMovie.title}}">
+  <div class="detailMovieContainer">
+    <div class="detailMovieImage">
+      <img src="{{imgSrc+detailMovie.poster_path}}" alt="{{detailMovie.title}}">
+    </div>
+    <div class="detailMovieBlock">
+      <h2 class="detailMovieName">{{detailMovie.title}}</h2>
+      <div class="addFavoriteBtn">Add to favorite</div>
+      <div class="detailMovieInfoBlock">
+        <p class="detailMovieInfo">Score: {{detailMovie.vote_average}}</p>
+        <p class="detailMovieInfo">Rating: R</p>
+        <p class="detailMovieInfo">Release Date: {{detailMovie.release_date}}</p>
+      </div>
+      <p class="detailMovieOverview">{{detailMovie.overview}}</p>
+    </div>
+  </div>
+</div>
+
