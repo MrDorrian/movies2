@@ -13,11 +13,6 @@
   bottom: 0;
 }
 
-.test {
-  display: flex;
-  justify-content: space-around;
-}
-
 .detailMovieContainer {
   display: flex;
   margin: 150px;
@@ -67,6 +62,10 @@
   color: #fffffd;
   border: 1px solid #fffffd;
   border-radius: 5%;
+}
+
+.addFavoriteBtn:hover {
+  box-shadow: 0 3px 5px grey;
 }
 
 .detailMovieInfoBlock {

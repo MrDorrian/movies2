@@ -3,7 +3,7 @@
   <div class="favoriteBlock" *ngFor="let favorite of favoriteListMovies">
     <div>
       <img class="favoriteBlockImage" src="{{imgSrc+favorite.poster_path}}" alt="{{favorite.title}}"
-           id="{{favorite.id}}">
+           id="{{favorite.id}}" (click)="detailMovie($event)">
     </div>
     <div class="favoriteBlockInfo">
       <p class="favoriteBlockName">{{favorite.title}}</p>
