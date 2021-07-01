@@ -1,12 +1,18 @@
 <div class="headerBlock">
   <div>
-<!--    <img-->
-    <!--      class="logoImg"-->
-    <!--      src="https://starwars.ru/media/cache/ce/1b/ce1bd0373e9ef1b3368773b1b6cb153c.png"-->
-    <!--      alt="">-->
-    <a href="#"><span class="logoName">Movies</span></a>
+    <a routerLink="/" class="logoNameBlock">
+      <svg style="width:48px;height:48px" viewBox="0 0 24 24">
+        <path fill="currentColor"
+              d="M2.05,13H21.95C21.45,18.05 17.19,22 12,22C6.82,22 2.55,18.05 2.05,13M21.95,11H2.05C2.55,5.95 6.82,2 12,2C17.18,2 21.45,5.95 21.95,11M12,6.75A2.5,2.5 0 0,0 9.5,4.25A2.5,2.5 0 0,0 7,6.75A2.5,2.5 0 0,0 9.5,9.25A2.5,2.5 0 0,0 12,6.75Z"/>
+      </svg>
+      <span class="logoName">Movies</span></a>
   </div>
-  <div class="accountMenu">
-    <a href="#"><span>My Account</span></a>
+  <div>
+    <a routerLink="/favorite" class="accountMenu">
+      <span>My Account</span>
+      <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
+      </svg>
+    </a>
   </div>
 </div>

@@ -1,6 +1,7 @@
-.newBlock {
+.blockName {
   padding: 20px 0px 10px 20px;
   color: #b1b7b9;
+  font-size: 1.3em;
 }
 
 .movieContainer {

@@ -26,7 +26,10 @@ export class MainPageComponent implements OnInit {
   }
 
   detailMovie(e: any) {
-    this.router.navigate(['/detail', e.target.id])
+    if (e.target.id) {
+      this.router.navigate(['/detail', e.target.id])
+    }
+    return
   }
 
 
