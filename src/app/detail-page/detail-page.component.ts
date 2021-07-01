@@ -11,6 +11,7 @@ export class DetailPageComponent implements OnInit {
 
   public detailMovieDB: any;
   public detailMovie: any;
+  public localStorageDB: any[] = [];
   public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
 
   constructor(private route: ActivatedRoute, private dataBase: DataService) {
@@ -38,4 +39,11 @@ export class DetailPageComponent implements OnInit {
     this.detailMovie = this.detailMovieDB.find((m: any) => m.id === id);
   }
 
+  addToFavoriteList() {
+    if (localStorage.getItem('favorite')) {
+      this.localStorageDB = JSON.parse(<string>localStorage.getItem('favorite'))
+    }
+    this.localStorageDB.push(this.detailMovie);
+    localStorage.setItem('favorite', JSON.stringify(this.localStorageDB));
+  }
 }

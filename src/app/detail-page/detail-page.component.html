@@ -1,12 +1,26 @@
 <div class="detailMovieBackImg">
   <img class="detailMovieContainerImg" src="{{imgSrc+detailMovie.poster_path}}" alt="{{detailMovie.title}}">
+  <div class="detailMovieButtonBack">
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+      <path fill="currentColor"
+            d="M22,12A10,10 0 0,0 12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12M20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12M14,7L9,12L14,17V7Z"/>
+    </svg>
+    <a routerLink="/">Back to list</a>
+  </div>
+  <div class="detailMovieButtonNext">
+    <a>Next Movie</a>
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+      <path fill="currentColor"
+            d="M2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2A10,10 0 0,0 2,12M4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12M10,17L15,12L10,7V17Z"/>
+    </svg>
+  </div>
   <div class="detailMovieContainer">
     <div class="detailMovieImage">
       <img src="{{imgSrc+detailMovie.poster_path}}" alt="{{detailMovie.title}}">
     </div>
     <div class="detailMovieBlock">
       <h2 class="detailMovieName">{{detailMovie.title}}</h2>
-      <div class="addFavoriteBtn">Add to favorite</div>
+      <div class="addFavoriteBtn" (click)="addToFavoriteList()">Add to favorite</div>
       <div class="detailMovieInfoBlock">
         <p class="detailMovieInfo">Score: {{detailMovie.vote_average}}</p>
         <p class="detailMovieInfo">Rating: R</p>

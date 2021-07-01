@@ -7,15 +7,37 @@
   -webkit-filter: blur(3px);
   filter: blur(5px);
   width: 100%;
-  top: -100px;
+  top: -150px;
   right: 0;
   left: 0;
   bottom: 0;
 }
 
+.test {
+  display: flex;
+  justify-content: space-around;
+}
+
 .detailMovieContainer {
   display: flex;
-  margin: 100px;
+  margin: 150px;
+}
+
+.detailMovieButtonBack, .detailMovieButtonNext {
+  color: black;
+  position: absolute;
+  z-index: 2;
+  top: -100px;
+  display: flex;
+  align-items: center;
+}
+
+.detailMovieButtonBack {
+  left: 100px;
+}
+
+.detailMovieButtonNext {
+  left: 1200px;
 }
 
 .detailMovieImage {
