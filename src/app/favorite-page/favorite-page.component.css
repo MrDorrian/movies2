@@ -2,6 +2,11 @@
   margin: 20px 50px;
 }
 
+.favoriteContainerName {
+  font-size: 1.5em;
+  color: #908c97;
+}
+
 .favoriteBlock {
   display: flex;
   margin-top: 20px;
