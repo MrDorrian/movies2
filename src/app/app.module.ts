@@ -5,16 +5,22 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import {HttpClientModule} from "@angular/common/http";
 import { HeaderPageComponent } from './header-page/header-page.component';
+import { DetailPageComponent } from './detail-page/detail-page.component';
+import { FavoritePageComponent } from './favorite-page/favorite-page.component';
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    HeaderPageComponent
+    HeaderPageComponent,
+    DetailPageComponent,
+    FavoritePageComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
