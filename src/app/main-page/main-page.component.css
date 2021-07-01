@@ -38,6 +38,7 @@
 .movieImg {
   border-radius: 2%;
   margin-bottom: 10px;
+  box-shadow: 0 3px 5px grey;
 }
 
 .paginationContainer {

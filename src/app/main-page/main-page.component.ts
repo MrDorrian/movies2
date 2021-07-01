@@ -1,9 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-
-export interface Movie {
-
-}
+import {Router} from "@angular/router";
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'app-main-page',
@@ -11,19 +9,24 @@ export interface Movie {
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  public baseUrl: string = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US';
-  public totalDB: any = [];
-  public moviesDB: any = [];
   public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
+  public totalDb: any = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private router: Router, private dataBase: DataService) {
   }
 
   ngOnInit(): void {
-    this.http.get<void>(this.baseUrl).subscribe(res => {
-      this.totalDB = res;
-      this.moviesDB = this.totalDB.results;
+    this.loadDataMovies()
+  }
+
+  loadDataMovies() {
+    this.dataBase.getData().subscribe(movie => {
+      this.totalDb = movie;
     })
+  }
+
+  detailMovie(e: any) {
+    this.router.navigate(['/detail', e.target.id])
   }
 
 
