@@ -1,0 +1,36 @@
+.favoriteContainer {
+  margin: 20px 50px;
+}
+
+.favoriteBlock {
+  display: flex;
+  margin-top: 20px;
+  position: relative;
+}
+
+.favoriteBlockImage {
+  width: 260px;
+  height: 370px;
+}
+
+.favoriteBlockInfo {
+  margin-left: 50px;
+  width: 800px;
+}
+
+.favoriteBlockName {
+  font-size: 2.2em;
+}
+
+.favoriteBlockOverview {
+  margin-top: 50px;
+  font-size: 1.6em;
+}
+
+.unFavoriteButton {
+  position: absolute;
+  left: 92%;
+  border: 1px solid black;
+  border-radius: 5%;
+  padding: 10px;
+}

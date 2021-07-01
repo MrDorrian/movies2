@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-favorite-page',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite-page.component.css']
 })
 export class FavoritePageComponent implements OnInit {
+  public favoriteListMovies: any[] = [];
+  public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    this.loadFavoriteList();
+  }
+
+  loadFavoriteList() {
+    this.favoriteListMovies = JSON.parse(<string>localStorage.getItem('favorite'));
+  }
 }

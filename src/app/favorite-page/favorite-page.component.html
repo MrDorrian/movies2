@@ -1,1 +1,14 @@
-<p>favorite-page works!</p>
+<div class="favoriteContainer">
+  <h2>My Favorite</h2>
+  <div class="favoriteBlock" *ngFor="let favorite of favoriteListMovies">
+    <div>
+      <img class="favoriteBlockImage" src="{{imgSrc+favorite.poster_path}}" alt="{{favorite.title}}"
+           id="{{favorite.id}}">
+    </div>
+    <div class="favoriteBlockInfo">
+      <p class="favoriteBlockName">{{favorite.title}}</p>
+      <p class="favoriteBlockOverview">{{favorite.overview}}</p>
+    </div>
+    <div class="unFavoriteButton">Unfavorite</div>
+  </div>
+</div>
