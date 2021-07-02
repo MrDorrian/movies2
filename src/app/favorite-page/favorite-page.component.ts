@@ -17,11 +17,11 @@ export class FavoritePageComponent implements OnInit {
     this.loadFavoriteList();
   }
 
-  loadFavoriteList() {
+  loadFavoriteList(): void {
     this.favoriteListMovies = JSON.parse(<string>localStorage.getItem('favorite'));
   }
 
-  detailMovie(e: any) {
+  detailMovie(e: any): void {
     if (e.target.id) {
       this.router.navigate(['/detail', e.target.id])
     }

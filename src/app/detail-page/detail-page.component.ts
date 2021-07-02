@@ -21,7 +21,7 @@ export class DetailPageComponent implements OnInit {
     this.loadMoviesData();
   }
 
-  loadMoviesData(): any {
+  loadMoviesData(): void {
     this.dataBase.getData().subscribe(res => {
       this.detailMovieDB = res;
       this.detailMovieDB = this.detailMovieDB.results;
@@ -29,17 +29,17 @@ export class DetailPageComponent implements OnInit {
     })
   }
 
-  getMovieId(): any {
+  getMovieId(): void {
     this.route.params.subscribe((params) => {
       this.loadDetailMovie(+params.id)
     })
   }
 
-  loadDetailMovie(id: number): any {
+  loadDetailMovie(id: number): void {
     this.detailMovie = this.detailMovieDB.find((m: any) => m.id === id);
   }
 
-  addToFavoriteList() {
+  addToFavoriteList(): void {
     if (localStorage.getItem('favorite')) {
       this.localStorageDB = JSON.parse(<string>localStorage.getItem('favorite'))
     }

@@ -1,5 +1,4 @@
-import {Component, EventEmitter, HostListener, OnInit, Output} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Component, OnInit,} from '@angular/core';
 import {Router} from "@angular/router";
 import {DataService} from "../services/data.service";
 
@@ -19,13 +18,13 @@ export class MainPageComponent implements OnInit {
     this.loadDataMovies()
   }
 
-  loadDataMovies() {
+  loadDataMovies(): void {
     this.dataBase.getData().subscribe(movie => {
       this.totalDb = movie;
     })
   }
 
-  detailMovie(e: any) {
+  detailMovie(e: any): void {
     if (e.target.id) {
       this.router.navigate(['/detail', e.target.id])
     }
