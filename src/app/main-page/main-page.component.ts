@@ -33,6 +33,7 @@ export class MainPageComponent implements OnInit {
   }
 
   nextPage() {
-    this.loadDataMovies(this.dataBase.currentPage++);
+    this.dataBase.currentPage++
+    this.loadDataMovies(this.dataBase.currentPage);
   }
 }

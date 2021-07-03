@@ -39,7 +39,10 @@ export class FavoriteDetailComponent implements OnInit {
   nextFavoriteMovie(): void {
     this.nextFavMovie = this.favoriteDetailList.indexOf(this.favoriteMovie)
     let newArray = this.favoriteDetailList[this.nextFavMovie + 1]
-    this.router.navigate(['/favorite-detail', newArray.id])
+    if (newArray) {
+      this.router.navigate(['/favorite-detail', newArray.id])
+    }
+    return
   }
 
   unfavoriteFilm(e: any): void {
