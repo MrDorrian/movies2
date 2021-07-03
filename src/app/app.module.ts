@@ -8,6 +8,7 @@ import { HeaderPageComponent } from './header-page/header-page.component';
 import { DetailPageComponent } from './detail-page/detail-page.component';
 import { FavoritePageComponent } from './favorite-page/favorite-page.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { FavoriteDetailComponent } from './favorite-detail/favorite-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {AppRoutingModule} from "./app-routing.module";
     MainPageComponent,
     HeaderPageComponent,
     DetailPageComponent,
-    FavoritePageComponent
+    FavoritePageComponent,
+    FavoriteDetailComponent
   ],
   imports: [
     BrowserModule,
