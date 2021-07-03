@@ -9,6 +9,6 @@
       <p class="favoriteBlockName">{{favorite.title}}</p>
       <p class="favoriteBlockOverview">{{favorite.overview}}</p>
     </div>
-    <div class="unFavoriteButton">Unfavorite</div>
+    <div class="unFavoriteButton" data-id="{{favorite.id}}" (click)="unFavoriteFilm($event)">Unfavorite</div>
   </div>
 </div>
