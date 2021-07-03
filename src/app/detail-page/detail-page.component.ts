@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../services/data.service";
 
 @Component({
@@ -12,9 +12,10 @@ export class DetailPageComponent implements OnInit {
   public detailMovieDB: any;
   public detailMovie: any;
   public localStorageDB: any[] = [];
+  public nextMovie: number = 0;
   public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
 
-  constructor(private route: ActivatedRoute, private dataBase: DataService) {
+  constructor(private route: ActivatedRoute, private dataBase: DataService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -45,5 +46,11 @@ export class DetailPageComponent implements OnInit {
     }
     this.localStorageDB.push(this.detailMovie);
     localStorage.setItem('favorite', JSON.stringify(this.localStorageDB));
+  }
+
+  loadNextMovie(): void {
+    this.nextMovie = this.detailMovieDB.indexOf(this.detailMovie)
+    let newArray = this.detailMovieDB[this.nextMovie + 1]
+    this.router.navigate(['/detail', newArray.id])
   }
 }

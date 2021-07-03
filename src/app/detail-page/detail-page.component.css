@@ -1,11 +1,11 @@
-.detailMovieBackImg {
+.detailMovieBackImgWrapper {
   position: relative;
 }
 
 .detailMovieContainerImg {
   position: absolute;
-  -webkit-filter: blur(3px);
-  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  filter: blur(7px);
   width: 100%;
   top: -150px;
   right: 0;
@@ -65,7 +65,7 @@
 }
 
 .addFavoriteBtn:hover {
-  box-shadow: 0 3px 5px grey;
+  box-shadow: 0 0 5px grey;
 }
 
 .detailMovieInfoBlock {
@@ -92,4 +92,8 @@
   border-bottom: 1px solid #fffffd;
   margin-top: 40px;
   padding: 20px 0;
+}
+
+.inActive {
+
 }

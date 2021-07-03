@@ -1,4 +1,4 @@
-<div class="detailMovieBackImg">
+<div class="detailMovieBackImgWrapper">
   <img class="detailMovieContainerImg" src="{{imgSrc+detailMovie.poster_path}}" alt="{{detailMovie.title}}">
   <div class="detailMovieButtonBack">
     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
@@ -8,7 +8,7 @@
     <a routerLink="/">Back to list</a>
   </div>
   <div class="detailMovieButtonNext">
-    <a>Next Movie</a>
+    <a (click)="loadNextMovie()">Next Movie</a>
     <svg style="width:24px;height:24px" viewBox="0 0 24 24">
       <path fill="currentColor"
             d="M2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2A10,10 0 0,0 2,12M4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12M10,17L15,12L10,7V17Z"/>
