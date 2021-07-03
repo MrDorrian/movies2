@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'app-favorite-page',
@@ -11,7 +12,7 @@ export class FavoritePageComponent implements OnInit {
   public deleteFilmId: any;
   public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private localData: DataService) {
   }
 
   ngOnInit(): void {
@@ -19,12 +20,12 @@ export class FavoritePageComponent implements OnInit {
   }
 
   loadFavoriteList(): void {
-    this.favoriteListMovies = JSON.parse(<string>localStorage.getItem('favorite'));
+    this.favoriteListMovies = this.localData.getLocalData();
   }
 
   detailMovie(e: any): void {
     if (e.target.id) {
-      this.router.navigate(['/detail', e.target.id])
+      this.router.navigate(['/favorite-detail', e.target.id])
     }
     return
   }

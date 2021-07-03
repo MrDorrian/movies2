@@ -14,6 +14,9 @@ export class DataService {
     return this.http.get<void>(this.baseUrl)
   }
 
+  getLocalData() {
+    return JSON.parse(<string>localStorage.getItem('favorite'));
+  }
 
 }
 
