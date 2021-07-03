@@ -1,0 +1,33 @@
+<div class="detailFavoriteBackImgWrapper">
+  <img class="detailFavoriteContainerImg" src="{{imgSrc+favoriteMovie.poster_path}}" alt="{{favoriteMovie.title}}">
+  <div class="detailFavoriteButtonBack">
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+      <path fill="currentColor"
+            d="M22,12A10,10 0 0,0 12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12M20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12M14,7L9,12L14,17V7Z"/>
+    </svg>
+    <a routerLink="/favorite">Back to list</a>
+  </div>
+  <div class="detailFavoriteButtonNext">
+    <a (click)="nextFavoriteMovie()">Next Movie</a>
+    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+      <path fill="currentColor"
+            d="M2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2A10,10 0 0,0 2,12M4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12M10,17L15,12L10,7V17Z"/>
+    </svg>
+  </div>
+  <div class="detailFavoriteContainer">
+    <div class="detailFavoriteImage">
+      <img src="{{imgSrc+favoriteMovie.poster_path}}" alt="{{favoriteMovie.title}}">
+    </div>
+    <div class="detailFavoriteBlock">
+      <h2 class="detailFavoriteName">{{favoriteMovie.title}}</h2>
+      <div class="unFavoriteBtn" (click)="unfavoriteFilm($event)" data-id="{{favoriteMovie.id}}">Unfavorite</div>
+      <div class="detailFavoriteInfoBlock">
+        <p class="detailFavoriteInfo">Score: {{favoriteMovie.vote_average}}</p>
+        <p class="detailFavoriteInfo">Rating: R</p>
+        <p class="detailFavoriteInfo">Release Date: {{favoriteMovie.release_date}}</p>
+      </div>
+      <p class="detailFavoriteOverview">{{favoriteMovie.overview}}</p>
+    </div>
+  </div>
+</div>
+
