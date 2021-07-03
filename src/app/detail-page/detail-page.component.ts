@@ -14,6 +14,7 @@ export class DetailPageComponent implements OnInit {
   public localStorageDB: any[] = [];
   public nextMovie: number = 0;
   public favoriteBtnClass: string = 'addFavoriteBtn';
+  public ifFavorite: boolean = false;
   public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
 
   constructor(private route: ActivatedRoute, private dataBase: DataService, private router: Router) {
