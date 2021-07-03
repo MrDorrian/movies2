@@ -10,16 +10,17 @@ import {DataService} from "../services/data.service";
 export class MainPageComponent implements OnInit {
   public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
   public totalDb: any = [];
+  public startPage: any;
 
   constructor(private router: Router, private dataBase: DataService) {
   }
 
   ngOnInit(): void {
-    this.loadDataMovies()
+    this.loadDataMovies(this.dataBase.currentPage)
   }
 
-  loadDataMovies(): void {
-    this.dataBase.getData().subscribe(movie => {
+  loadDataMovies(page: any): void {
+    this.dataBase.getData(page).subscribe(movie => {
       this.totalDb = movie;
     })
   }
@@ -31,5 +32,7 @@ export class MainPageComponent implements OnInit {
     return
   }
 
-
+  nextPage() {
+    this.loadDataMovies(this.dataBase.currentPage++);
+  }
 }

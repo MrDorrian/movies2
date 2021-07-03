@@ -22,10 +22,11 @@ export class DetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadMoviesData();
+
   }
 
   loadMoviesData(): void {
-    this.dataBase.getData().subscribe(res => {
+    this.dataBase.getData(this.dataBase.currentPage).subscribe(res => {
       this.detailMovieDB = res;
       this.detailMovieDB = this.detailMovieDB.results;
       this.getMovieId();

@@ -5,12 +5,16 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class DataService {
-  public baseUrl: string = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US';
+  public baseUrl: string = 'https://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&language=en-US&page='
+  public currentPage: number = 1;
 
   constructor(private http: HttpClient) {
   }
 
-  getData() {
+  getData(page?: any) {
+    if (page) {
+      return this.http.get<void>(this.baseUrl + page)
+    }
     return this.http.get<void>(this.baseUrl)
   }
 

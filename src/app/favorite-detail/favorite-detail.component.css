@@ -19,7 +19,8 @@
 }
 
 .detailFavoriteButtonBack, .detailFavoriteButtonNext {
-  color: black;
+  color: red;
+  font-weight: bold;
   position: absolute;
   z-index: 2;
   top: -100px;

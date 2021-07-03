@@ -47,5 +47,6 @@ export class FavoriteDetailComponent implements OnInit {
     let index = this.favoriteDetailList.indexOf(this.deleteFavFilm)
     this.favoriteDetailList.splice(index, 1)
     localStorage.setItem('favorite', JSON.stringify(this.favoriteDetailList));
+    this.router.navigate(['/favorite'])
   }
 }
