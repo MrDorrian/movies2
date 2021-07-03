@@ -20,7 +20,7 @@
     </div>
     <div class="detailMovieBlock">
       <h2 class="detailMovieName">{{detailMovie.title}}</h2>
-      <div class="addFavoriteBtn" (click)="addToFavoriteList()">Add to favorite</div>
+      <div [ngClass]="favoriteBtnClass" (click)="addToFavoriteList($event)">Add to favorite</div>
       <div class="detailMovieInfoBlock">
         <p class="detailMovieInfo">Score: {{detailMovie.vote_average}}</p>
         <p class="detailMovieInfo">Rating: R</p>

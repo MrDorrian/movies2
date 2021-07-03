@@ -13,6 +13,7 @@ export class DetailPageComponent implements OnInit {
   public detailMovie: any;
   public localStorageDB: any[] = [];
   public nextMovie: number = 0;
+  public favoriteBtnClass: string = 'addFavoriteBtn';
   public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
 
   constructor(private route: ActivatedRoute, private dataBase: DataService, private router: Router) {
@@ -32,7 +33,8 @@ export class DetailPageComponent implements OnInit {
 
   getMovieId(): void {
     this.route.params.subscribe((params) => {
-      this.loadDetailMovie(+params.id)
+      this.loadDetailMovie(+params.id);
+      this.checkIdfavorite(+params.id);
     })
   }
 
@@ -40,17 +42,30 @@ export class DetailPageComponent implements OnInit {
     this.detailMovie = this.detailMovieDB.find((m: any) => m.id === id);
   }
 
-  addToFavoriteList(): void {
+  addToFavoriteList(e: any): void {
     if (localStorage.getItem('favorite')) {
-      this.localStorageDB = JSON.parse(<string>localStorage.getItem('favorite'))
+      this.localStorageDB = JSON.parse(<string>localStorage.getItem('favorite'));
     }
     this.localStorageDB.push(this.detailMovie);
     localStorage.setItem('favorite', JSON.stringify(this.localStorageDB));
+    this.checkIdfavorite(this.detailMovie.id)
   }
 
   loadNextMovie(): void {
     this.nextMovie = this.detailMovieDB.indexOf(this.detailMovie)
     let newArray = this.detailMovieDB[this.nextMovie + 1]
     this.router.navigate(['/detail', newArray.id])
+  }
+
+  checkIdfavorite(id: number): void {
+    if (localStorage.getItem('favorite')) {
+      this.localStorageDB = JSON.parse(<string>localStorage.getItem('favorite'));
+      let checkId = this.localStorageDB.find((check: any) => check.id === id)
+      if (checkId) {
+        this.favoriteBtnClass = 'inActive';
+      } else {
+        this.favoriteBtnClass = 'addFavoriteBtn';
+      }
+    }
   }
 }

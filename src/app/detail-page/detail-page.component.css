@@ -53,7 +53,7 @@
 
 .addFavoriteBtn {
   position: absolute;
-  top: 0;
+  top: -50px;
   left: 85%;
   width: 120px;
   height: 30px;
@@ -95,5 +95,5 @@
 }
 
 .inActive {
-
+  display: none;
 }
