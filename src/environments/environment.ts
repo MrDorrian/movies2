@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-
+  imgSrc: 'https://image.tmdb.org/t/p/w300',
 };
 
 /*

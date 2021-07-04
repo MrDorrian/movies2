@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../services/data.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-detail-page',
@@ -14,8 +15,7 @@ export class DetailPageComponent implements OnInit {
   public localStorageDB: any[] = [];
   public nextMovie: number = 0;
   public favoriteBtnClass: string = 'addFavoriteBtn';
-  public ifFavorite: boolean = false;
-  public imgSrc: string = 'https://image.tmdb.org/t/p/w300';
+  public imgSrc: string = environment.imgSrc;
 
   constructor(private route: ActivatedRoute, private dataBase: DataService, private router: Router) {
   }

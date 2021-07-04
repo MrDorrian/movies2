@@ -3,15 +3,16 @@
 </div>
 <div class="movieContainer">
   <div class="movieBlock" *ngFor="let movie of totalDb.results" (click)="detailMovie($event)">
-    <img class="movieImg" src="{{imgSrc+movie.poster_path}}" alt="{{movie.title}}" id="{{movie.id}}"/>
+    <img class="movieImg" src="{{imgUrl + movie.poster_path}}" alt="{{movie.title}}" id="{{movie.id}}"/>
     <p class="movieTitle">{{movie.title}}</p>
   </div>
 </div>
 <div class="paginationContainer">
-  <button class="firstBtn buttonPag">First</button>
-  <button class="prevBtn buttonPag">Prev</button>
+  <button class="firstBtn buttonPag" (click)="firstPage()">First</button>
+  <button class="prevBtn buttonPag" (click)="prevPage()">Prev</button>
+  <!--  <button class="paginBtn buttonPag" (click)="paginBtn()">{{}}</button>-->
   <button class="nextBtn buttonPag" (click)="nextPage()">Next</button>
-  <button class="lastBtn buttonPag">Last</button>
+  <button class="lastBtn buttonPag" (click)="lastPage()">Last</button>
 </div>
 
 
