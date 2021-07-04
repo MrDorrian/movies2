@@ -39,7 +39,10 @@ export class MainPageComponent implements OnInit {
   nextPage(): void {
     this.dataBase.currentPage++;
     this.loadDataMovies(this.dataBase.currentPage);
-    this.upgradePagination();
+    if (this.dataBase.currentPage >= 3) {
+      this.upgradePagination();
+    }
+    console.log(this.dataBase.currentPage)
   }
 
   firstPage(): void {
@@ -58,24 +61,27 @@ export class MainPageComponent implements OnInit {
 
   upgradePagination() {
     if (this.dataBase.currentPage + 4 <= this.totalPages.length) {
-      for (let i = this.dataBase.currentPage; i <= this.dataBase.currentPage + 5; i++) {
+      for (let i = this.dataBase.currentPage; i <= this.dataBase.currentPage + 5;) {
         this.paginArray.push(i);
-        this.paginArray.shift(i);
+        this.paginArray.shift();
       }
       for (let i = this.dataBase.currentPage; i >= this.dataBase.currentPage - 2; i--) {
-        this.paginArray.pop(i);
+        this.paginArray.pop();
         this.paginArray.unshift(i);
       }
+      console.log('1:' + this.paginArray)
     } else {
-      for (let i = this.dataBase.currentPage; i >= this.dataBase.currentPage - 4; i--) {
-        this.paginArray.pop(i);
+      for (let i = this.dataBase.currentPage; i >= this.dataBase.currentPage + 8; i--) {
+        this.paginArray.pop();
         this.paginArray.unshift(i);
       }
-      for (let i = this.dataBase.currentPage; i <= this.dataBase.currentPage - 4; i++) {
+      for (let i = this.dataBase.currentPage; i <= this.dataBase.currentPage + 4; i++) {
         this.paginArray.push(i);
-        this.paginArray.shift(i);
+        this.paginArray.shift();
       }
+      console.log('2:' + this.paginArray)
     }
+
   }
 
   paginBtn(e: any): void {
