@@ -10,7 +10,9 @@
 <div class="paginationContainer">
   <button class="firstBtn buttonPag" (click)="firstPage()">First</button>
   <button class="prevBtn buttonPag" (click)="prevPage()">Prev</button>
-  <!--  <button class="paginBtn buttonPag" (click)="paginBtn()">{{}}</button>-->
+  <div *ngFor="let pagin of paginArray">
+    <button class="paginBtn buttonPag" (click)="paginBtn($event)">{{pagin}}</button>
+  </div>
   <button class="nextBtn buttonPag" (click)="nextPage()">Next</button>
   <button class="lastBtn buttonPag" (click)="lastPage()">Last</button>
 </div>
