@@ -37,60 +37,79 @@ export class MainPageComponent implements OnInit {
   }
 
   nextPage(): void {
-    this.dataBase.currentPage++;
-    this.loadDataMovies(this.dataBase.currentPage);
-    if (this.dataBase.currentPage >= 3) {
-      this.upgradePagination();
+    if (this.dataBase.currentPage < this.totalPages) {
+      this.dataBase.currentPage++;
+      this.loadDataMovies(this.dataBase.currentPage);
+      if (this.dataBase.currentPage >= 4) {
+        for (let i = this.dataBase.currentPage; i <= this.dataBase.currentPage + 1;) {
+          i = i + 2;
+          this.paginArray.push(i);
+          this.paginArray.shift();
+        }
+      }
     }
-    console.log(this.dataBase.currentPage)
   }
 
   firstPage(): void {
     this.dataBase.currentPage = 1;
     this.loadDataMovies(this.dataBase.currentPage);
-    this.upgradePagination();
+    this.paginArray = [1, 2, 3, 4, 5];
   }
 
   prevPage(): void {
     if (this.dataBase.currentPage >= 2) {
       this.dataBase.currentPage--;
       this.loadDataMovies(this.dataBase.currentPage);
-      this.upgradePagination();
+      if (this.dataBase.currentPage >= 3 && this.totalPages >= this.dataBase.currentPage + 3) {
+        for (let i = this.dataBase.currentPage; i >= this.dataBase.currentPage - 1;) {
+          i = i - 2;
+          this.paginArray.unshift(i);
+          this.paginArray.pop();
+        }
+      }
     }
-  }
-
-  upgradePagination() {
-    if (this.dataBase.currentPage + 4 <= this.totalPages.length) {
-      for (let i = this.dataBase.currentPage; i <= this.dataBase.currentPage + 5;) {
-        this.paginArray.push(i);
-        this.paginArray.shift();
-      }
-      for (let i = this.dataBase.currentPage; i >= this.dataBase.currentPage - 2; i--) {
-        this.paginArray.pop();
-        this.paginArray.unshift(i);
-      }
-      console.log('1:' + this.paginArray)
-    } else {
-      for (let i = this.dataBase.currentPage; i >= this.dataBase.currentPage + 8; i--) {
-        this.paginArray.pop();
-        this.paginArray.unshift(i);
-      }
-      for (let i = this.dataBase.currentPage; i <= this.dataBase.currentPage + 4; i++) {
-        this.paginArray.push(i);
-        this.paginArray.shift();
-      }
-      console.log('2:' + this.paginArray)
-    }
-
   }
 
   paginBtn(e: any): void {
-
+    if (+e.target.innerText > this.dataBase.currentPage) {
+      this.loadPage(+e.target.innerText);
+      for (let i = this.dataBase.currentPage; i < this.dataBase.currentPage + 2;) {
+        i++;
+        this.paginArray.push(i);
+        this.paginArray.shift();
+      }
+    } else if (+e.target.innerText > this.dataBase.currentPage - 2) {
+      this.loadPage(+e.target.innerText);
+      for (let i = this.dataBase.currentPage; i > this.dataBase.currentPage - 1;) {
+        i = i - 2;
+        this.paginArray.unshift(i);
+        this.paginArray.pop();
+      }
+    } else {
+      this.loadPage(+e.target.innerText);
+      for (let i = this.dataBase.currentPage; i > this.dataBase.currentPage - 2; i--) {
+        this.paginArray.unshift(i);
+        this.paginArray.pop();
+      }
+    }
   }
 
-  lastPage(): void {
+  lastPage()
+    :
+    void {
     this.dataBase.currentPage = this.totalPages;
     this.loadDataMovies(this.dataBase.currentPage);
-    this.upgradePagination();
+
+    for (let i = this.dataBase.currentPage; i >= this.dataBase.currentPage - 4;
+         i--
+    ) {
+      this.paginArray.pop();
+      this.paginArray.unshift(i);
+    }
+  }
+
+  loadPage(id: number) {
+    this.dataBase.currentPage = id;
+    this.loadDataMovies(this.dataBase.currentPage);
   }
 }
